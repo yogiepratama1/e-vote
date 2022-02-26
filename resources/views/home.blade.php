@@ -30,7 +30,7 @@
                 <div class="mx-auto md::w-4/5 sm:w-11/12 w-11/12 h-full text-white " style="background: linear-gradient(102.6deg, #396EB0 0%, #09C6F9 83.9%);border-radius: 5px;">
                     <h1 class="text-center mt-4 text-sm">{{ \Carbon\Carbon::parse($candidate->end)->translatedFormat('l, j F Y ') }}</h1>
                     <div class="w-4/5 h-full mx-auto md:p-7 p-2">
-                        <img src="{{ asset('storage/' . $candidate->image_path) }}" alt="candidateimg">
+                        <img src="{{ $candidate->image_path) }}" alt="candidateimg">
                         <h1 class="text-center my-2 md:text-2xl text-xl">{{ $candidate->name }}</h1>
                         <div class="text-center my-6">
                             <h1>Visi</h1>
