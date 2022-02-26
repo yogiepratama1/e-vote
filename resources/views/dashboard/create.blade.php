@@ -39,7 +39,7 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="image_path" class="form-label">Image</label>
                         <img class="img-preview img-fluid">
                         <input class="form-control @error('image_path') is-invalid @enderror" name="image_path" id="image" type="file" onchange="previewImage()" value="{{ old('image_path') }}">
@@ -48,6 +48,17 @@
                             {{ $message }}
                         </div>
                         @enderror
+                    </div> -->
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="image_path" class="form-label">Image Link</label>
+                            <input id="image_path" name="image_path" class="@error('image_path') is-invalid @enderror form-control" value="{{ old('image_path') }}" placeholder="linkhere...">
+                            @error('image_path')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
                     </div>
 
                     <div class="mb-3">

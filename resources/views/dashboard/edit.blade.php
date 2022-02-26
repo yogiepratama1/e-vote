@@ -40,7 +40,7 @@
                     @enderror
                 </div>
 
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label for="image_path" class="form-label">Image</label>
                     <input type="hidden" name="oldImage" value="{{ $candidate->image_path }}">
                     @if($candidate->image_path)
@@ -54,6 +54,18 @@
                         {{ $message }}
                     </div>
                     @enderror
+                </div> -->
+
+                <div class="mb-3">
+                    <div class="form-group">
+                        <label for="image_path" class="form-label">Image Link</label>
+                        <input id="image_path" name="image_path" class="@error('image_path') is-invalid @enderror form-control" value="{{old('image_path', $candidate->image_path )}}" placeholder="linkhere...">
+                        @error('image_path')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
                 </div>
 
                 <div class="mb-3">

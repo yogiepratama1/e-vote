@@ -38,14 +38,14 @@ class DashboardController extends Controller
             'name' => 'required|max:255',
             'visi' => 'required',
             'misi' => 'required',
-            'image_path' => 'nullable|image',
+            'image_path' => 'nullable',
             'start' => 'required',
             'end' => 'required',
         ]);
 
-        if ($request->file('image_path')) {
-            $validatedData['image_path'] = $request->file('image_path')->store('candidates-images');
-        }
+        // if ($request->file('image_path')) {
+        //     $validatedData['image_path'] = $request->file('image_path')->store('candidates-images');
+        // }
         if ($validatedData['end'] >= $date['date'] && $validatedData['start'] <= $date['date']) {
             $validatedData['active_id'] = 1;
         } else {
@@ -69,20 +69,20 @@ class DashboardController extends Controller
             'name' => 'required|max:255',
             'visi' => 'required',
             'misi' => 'required',
-            'image_path' => 'nullable|image',
+            'image_path' => 'nullable',
             'start' => 'required',
             'end' => 'required',
             'active_id' => 'required',
         ];
         $validatedData = $request->validate($rules);
 
-        if ($request->file('image_path')) {
-            if ($request->oldImage) {
-                Storage::delete($request->oldImage);
+        // if ($request->file('image_path')) {
+        //     if ($request->oldImage) {
+        //         Storage::delete($request->oldImage);
 
-                $validatedData['image_path'] = $request->file('image_path')->store('candidates-images');
-            }
-        }
+        //         $validatedData['image_path'] = $request->file('image_path')->store('candidates-images');
+        //     }
+        // }
         Candidate::where('id', $candidate->id)->update($validatedData);
         return redirect('/dashboard')->with('berhasil', 'Kandidat telah diupdate');
     }
